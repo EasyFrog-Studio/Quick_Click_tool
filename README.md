@@ -2,6 +2,31 @@
 
 一個 Windows 用的滑鼠連點器：按 F4 開始或停止在滑鼠目前的位置連續點擊左鍵，可以設定點擊間隔，也可以設定點滿幾次後自動停止。
 
+<table>
+  <tr>
+    <th>初始畫面</th>
+    <th>連點中</th>
+    <th>已完成</th>
+  </tr>
+  <tr>
+    <td><img src="docs/images/idle.png" width="260" alt="初始畫面：間隔 0.05 秒、次數留空、狀態為已暫停"></td>
+    <td><img src="docs/images/running.png" width="260" alt="連點中：已點擊 102 / 500，進度條前進中，按鈕變成橘色的停止連點"></td>
+    <td><img src="docs/images/completed.png" width="260" alt="已完成：點滿 20 次後自動停止，進度條填滿"></td>
+  </tr>
+  <tr>
+    <th>輸入錯誤</th>
+    <th>深色模式</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><img src="docs/images/invalid.png" width="260" alt="輸入錯誤：兩個欄位下方以紅字顯示錯誤原因，連點沒有開始"></td>
+    <td><img src="docs/images/running_dark.png" width="260" alt="深色模式下的連點中畫面"></td>
+    <td></td>
+  </tr>
+</table>
+
+介面會跟著 Windows 的淺色／深色設定切換。
+
 ## 使用方式
 
 雙擊 `Quick_Click_tool\Quick_Click.lnk` 開啟程式。如果捷徑打不開，就直接雙擊 `Quick_Click_tool\Quick_Click\Quick_Click.exe`。
