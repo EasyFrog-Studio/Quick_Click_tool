@@ -1,0 +1,5 @@
+customtkinter==6.0.0
+keyboard==0.13.5
+PyAutoGUI==0.9.54
+pyinstaller==6.22.3
+pytest==9.1.1

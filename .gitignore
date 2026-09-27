@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# build.ps1 writes PyInstaller work files and the .spec here; the packaged tool lands outside this repo
+build/
+
+*.log
