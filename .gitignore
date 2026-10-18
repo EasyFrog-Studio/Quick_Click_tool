@@ -7,7 +7,9 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 
-# build.ps1 writes PyInstaller work files and the .spec here; the packaged tool lands outside this repo
+# build.ps1 writes PyInstaller work files and the .spec here
 build/
+# the packaged tool is committed so users can run it without building; *.pyd above would break it
+!package_tool/**
 
 *.log

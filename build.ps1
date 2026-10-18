@@ -1,8 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 
 $quickClick = $PSScriptRoot
-$repoRoot = Split-Path -Parent $quickClick
-$toolRoot = Join-Path $repoRoot 'Quick_Click_tool'
+$toolRoot = Join-Path $quickClick 'package_tool'
 $outputDir = Join-Path $toolRoot 'Quick_Click'
 $shortcutPath = Join-Path $toolRoot 'Quick_Click.lnk'
 $buildDir = Join-Path $quickClick 'build'
@@ -23,7 +22,7 @@ if (-not (Test-Path $exePath)) {
     throw "Build reported success but $exePath is missing"
 }
 
-# relative Arguments survive moving Quick_Click_tool only when the launcher's working directory is the .lnk folder
+# relative Arguments survive moving package_tool only when the launcher's working directory is the .lnk folder
 $shell = New-Object -ComObject WScript.Shell
 $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = "$env:windir\explorer.exe"

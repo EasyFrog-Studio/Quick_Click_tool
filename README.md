@@ -1,5 +1,12 @@
 # Quick Click 智能滑鼠連點器
 
+> **直接下載就能用，不需要安裝 Python，也不用自己打包。**
+>
+> 1. 下載 [專案 ZIP](https://github.com/EasyFrog-Studio/Quick_Click_tool/archive/refs/heads/master.zip) 並解壓縮。
+> 2. 打開裡面的 `package_tool` 資料夾，雙擊 `Quick_Click.lnk` 就能開始使用。
+>
+> 只需要 `package_tool` 這個資料夾，可以把它單獨複製到任何地方使用，其他檔案都是原始碼。僅支援 Windows。
+
 一個 Windows 用的滑鼠連點器：按 F4 開始或停止在滑鼠目前的位置連續點擊左鍵，可以設定點擊間隔，也可以設定點滿幾次後自動停止。
 
 <table>
@@ -29,7 +36,7 @@
 
 ## 使用方式
 
-雙擊 `Quick_Click_tool\Quick_Click.lnk` 開啟程式。如果捷徑打不開，就直接雙擊 `Quick_Click_tool\Quick_Click\Quick_Click.exe`。
+雙擊 `package_tool\Quick_Click.lnk` 開啟程式。如果捷徑打不開，就直接雙擊 `package_tool\Quick_Click\Quick_Click.exe`。
 
 | 欄位 | 說明 |
 |---|---|
@@ -56,7 +63,7 @@
 ### 限制
 
 - 程式以一般權限執行，所以點不到以系統管理員身分開啟的視窗（例如部分遊戲、工作管理員），在這類視窗裡 F4 也收不到。遇到這種情況，請對 `Quick_Click.exe` 按右鍵，選「以系統管理員身分執行」。
-- 如果把 `Quick_Click_tool` 資料夾搬到別處，捷徑的圖示可能會變成通用圖示。
+- 如果把 `package_tool` 資料夾搬到別處，捷徑的圖示可能會變成通用圖示。
 
 ## 開發
 
@@ -99,15 +106,15 @@ F4 熱鍵在另一個執行緒上觸發，它只把請求放進佇列；視窗�
 powershell -ExecutionPolicy Bypass -File build.ps1
 ```
 
-腳本會刪掉上次的輸出，用 PyInstaller 重新打包，再重建捷徑。打包失敗時，腳本會停下來並回報錯誤。輸出放在 repo 外面、和 repo 同一層的 `Quick_Click_tool`：
+腳本會刪掉上次的輸出，用 PyInstaller 重新打包，再重建捷徑。打包失敗時，腳本會停下來並回報錯誤。輸出放在 `package_tool`，這個資料夾會進版控，讓別人下載後直接使用：
 
 ```
-Quick_Click_tool/
+package_tool/
 ├─ Quick_Click/          執行檔和執行所需的檔案
 │  └─ Quick_Click.exe
 └─ Quick_Click.lnk       雙擊這個開啟
 ```
 
-打包過程的暫存檔放在 `build/`，這個資料夾不進版控。
+打包過程的暫存檔放在 `build/`，這個資料夾不進版控。改了程式碼後要重新打包，並把 `package_tool` 一起提交，下載的人拿到的才會是新版。
 
 打包前請先關閉正在執行的 `Quick_Click.exe`，否則舊檔被占用，腳本會刪除失敗。
